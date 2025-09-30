@@ -41,16 +41,16 @@ app.use((req, res, next) => {
 });
 
 // statique pour les fichiers uploadés
-app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/expenses', expenseRoutes);
-app.use('/api/incomes', incomeRoutes);
-app.use('/api/categories', categoryRoutes);
-app.use('/api/summary', summaryRoutes);
-app.use('/api/receipts', receiptRoutes);
-app.use('/api/user', userRoutes);
+app.use('/auth', authRoutes);
+app.use('/expenses', expenseRoutes);
+app.use('/incomes', incomeRoutes);
+app.use('/categories', categoryRoutes);
+app.use('/summary', summaryRoutes);
+app.use('/receipts', receiptRoutes);
+app.use('/user', userRoutes);
 
 // globale erreur handler
 app.use((error, req, res, next) => {
