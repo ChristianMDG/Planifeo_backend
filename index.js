@@ -23,6 +23,10 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.send("Planifeo backend is running 🚀");
+});
+
 // Middleware pour logger les requêtes multipart/form-data
 app.use((req, res, next) => {
   if (req.headers['content-type'] && req.headers['content-type'].startsWith('multipart/form-data')) {
