@@ -17,9 +17,14 @@ const PORT = process.env.PORT;
 
 // Middleware
 app.use(cors({
-  origin: 'planifeomoney.vercel.app',
+  origin: [
+    'http://localhost:3000',  // Vite dev
+    'http://localhost:3001',  // si tu lances sur port 3001
+    'https://planifeomoney.vercel.app' // Prod Vercel
+  ],
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
