@@ -45,7 +45,7 @@ app.use((req, res, next) => {
 // statique pour les fichiers uploadés
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-Routes
+// Routes
 app.use('/auth', authRoutes);
 app.use('/expenses', expenseRoutes);
 app.use('/incomes', incomeRoutes);
@@ -54,6 +54,9 @@ app.use('/summary', summaryRoutes);
 app.use('/receipts', receiptRoutes);
 app.use('/user', userRoutes);
 
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', uptime: process.uptime() })
+})
 
 // globale erreur handler
 app.use((error, req, res, next) => {
