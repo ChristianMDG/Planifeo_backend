@@ -20,7 +20,8 @@ app.use(cors({
   origin: [
     'http://localhost:3000',  // Vite dev
     'http://localhost:3003',  // si tu lances sur port 3001
-    'https://planifeomoney.vercel.app' // Prod Vercel
+    'https://planifeomoney.vercel.app',
+    'https://planifeo.vercel.app/' // Prod Vercel
   ],
   credentials: true
 }));
