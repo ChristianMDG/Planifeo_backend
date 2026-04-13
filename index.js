@@ -25,6 +25,7 @@ app.use(cors({
   ],
   credentials: true
 }));
+app.options('*', cors()) 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -45,14 +46,21 @@ app.use((req, res, next) => {
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
-app.use('/auth', authRoutes);
-app.use('/expenses', expenseRoutes);
-app.use('/incomes', incomeRoutes);
-app.use('/categories', categoryRoutes);
-app.use('/summary', summaryRoutes);
-app.use('/receipts', receiptRoutes);
-app.use('/user', userRoutes);
+// app.use('/auth', authRoutes);
+// app.use('/expenses', expenseRoutes);
+// app.use('/incomes', incomeRoutes);
+// app.use('/categories', categoryRoutes);
+// app.use('/summary', summaryRoutes);
+// app.use('/receipts', receiptRoutes);
+// app.use('/user', userRoutes);
 
+app.use('/api/auth', authRoutes);
+app.use('/api/expenses', expenseRoutes);
+app.use('/api/incomes', incomeRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/summary', summaryRoutes);
+app.use('/api/receipts', receiptRoutes);
+app.use('/api/user', userRoutes);
 // globale erreur handler
 app.use((error, req, res, next) => {
   console.error('Error:', error);
